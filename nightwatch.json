@@ -1,0 +1,174 @@
+{
+  "src_folders" : ["./tests"],
+  "output_folder" : "./reports",
+  "custom_commands_path" : "./custom_commands",
+  "page_objects_path" : "./components",
+  "custom_assertions_path" : "",
+  "globals_path" : "",
+  "live_output" : false,
+  "parallel_process_delay" : 10,
+  "disable_colors": false,
+  "test_workers": {
+    "enabled": true,
+    "workers": 10
+  },
+  "selenium" : {
+    "start_process" : true,
+    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.6.0.jar",
+    "log_path" : "",
+    "port" : 4444,
+    "cli_args" : {
+      "webdriver.gecko.driver" : "./node_modules/geckodriver/bin/geckodriver",
+      "webdriver.chrome.driver" : "./node_modules/chromedriver/bin/chromedriver",
+      "webdriver.ie.driver" : "",
+      "webdriver.firefox.profile" : ""
+    }
+  },
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "https://please-change-me.com",
+      "selenium_host" : "ondemand.saucelabs.com",
+      "selenium_port" : 4444,
+      "username" : "${SAUCE_USERNAME}",
+      "access_key" : "${SAUCE_ACCESS_KEY}",
+      "use_ssl" : false,
+      "silent" : true,
+      "output" : true,
+      "screenshots" : {
+        "enabled" : false,
+        "on_failure" : true,
+        "path" : "./screenshots"
+      },
+      "desiredCapabilities": {
+        "name" : "nightwatch-skeleton-lab",
+        "tags" : "nightwatch-skeleton",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
+      },
+      "globals" : {
+        "propertyData" : {
+          "goDirectURL":"${SITE_NAME}/go/directly/",
+          "environment":"default"
+        }
+      },
+      "selenium" : {
+        "start_process" : false
+      }
+    },
+    "sauce-android" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch - Mobile Web Android",
+        "appiumVersion" : "1.6.5",
+        "platformName" : "Android",
+        "platformVersion" : "7.0",
+        "deviceName" : "Android GoogleAPI Emulator",
+        "browserName" : "chrome"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"android-7"
+        }
+      }
+    },
+    "sauce-iphone" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch Skeleton - Mobile Web iPhone",
+        "appiumVersion" : "1.7.1",
+        "platformName" : "iOS",
+        "platformVersion" : "11.0",
+        "deviceName" : "iPhone X Simulator",
+        "browserName" : "Safari"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"ios-iphone"
+        }
+      }
+    },
+    "sauce-osx-chrome" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch Skeleton - osx-chrome",
+        "platform" : "macOS 10.12",
+        "browserName" : "chrome",
+        "version": "61"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"os_x_10_12-chrome61"
+        }
+      }
+    },
+    "sauce-osx-safari" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch Skeleton - osx-safari",
+        "platform" : "macOS 10.12",
+        "browserName" : "safari",
+        "version" : "10.0"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"os_x_10_12-safari10"
+        }
+      }
+    },
+    "sauce-windows-firefox" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch Skeleton - windows-firefox",
+        "platform" : "Windows 10",
+        "browserName" : "Firefox",
+        "version": "47.0"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"windows10-firefox47"
+        }
+      }
+    },
+    "local-chrome" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch - local-chrome",
+        "browserName" : "chrome"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"local-chrome"
+        }
+      },
+      "selenium_host" : "localhost",
+      "selenium" : {
+        "start_process" : true
+      }
+    },
+    "local-firefox" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch - local-firefox",
+        "browserName" : "firefox",
+        "marionette" : true
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"local-firefox"
+        }
+      },
+      "selenium_host" : "localhost",
+      "selenium" : {
+        "start_process" : true
+      }
+    },
+    "local-safari" : {
+      "desiredCapabilities": {
+        "name" : "Nightwatch - local-safari",
+        "browserName" : "safari"
+      },
+      "globals" : {
+        "propertyData" : {
+          "environment":"local-safari"
+        }
+      },
+      "selenium_host" : "localhost",
+      "selenium" : {
+        "start_process" : true
+      }
+    }
+  }
+}
