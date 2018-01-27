@@ -1,0 +1,32 @@
+{
+  "name": "nightwatch-skeleton",
+  "description": "A node.js bindings implementation for selenium 3.0/webdriver",
+  "version": "0.9.8",
+  "author": {
+    "name": "Andrei Rusu",
+    "email": "andrei@nightwatchjs.org"
+  },
+  "homepage": "http://nightwatchjs.org",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "bugs": "https://github.com/nightwatchjs/nightwatch/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nightwatchjs/nightwatch.git"
+  },
+  "dependencies": {
+    "chromedriver": "2.35",
+    "eyes.selenium": "0.0.75  ",
+    "geckodriver": "1.10.0",
+    "saucelabs": "^1.4.0",
+    "selenium-server-standalone-jar": "3.8.1",
+    "selenium-webdriver": "^3.6.0"
+  },
+  "man": "",
+  "scripts": {
+    "jshint": "./node_modules/.bin/jshint --verbose --config .jshintrc lib/",
+    "eslint": "./node_modules/.bin/eslint --fix **/*.js --ignore-pattern node_modules/",
+    "mocha-coverage": "jscoverage lib --exclude *.ejs,*.json && NIGHTWATCH_COV=1 ./node_modules/.bin/mocha test/src --reporter html-cov > coverage.html",
+    "mocha-lcov-coverage": "jscoverage lib --exclude *.ejs,*.json && NIGHTWATCH_COV=1 ./node_modules/.bin/mocha test/src --reporter mocha-lcov-reporter > lib-cov/coverage.lcov"
+  }
+}
