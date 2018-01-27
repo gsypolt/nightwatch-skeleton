@@ -2,7 +2,7 @@
   "src_folders" : ["./tests"],
   "output_folder" : "./reports",
   "custom_commands_path" : "./custom_commands",
-  "page_objects_path" : "./components",
+  "page_objects_path" : "",
   "custom_assertions_path" : "",
   "globals_path" : "",
   "live_output" : false,
@@ -14,7 +14,7 @@
   },
   "selenium" : {
     "start_process" : true,
-    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.6.0.jar",
+    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.8.1.jar",
     "log_path" : "",
     "port" : 4444,
     "cli_args" : {
@@ -48,6 +48,10 @@
       "globals" : {
         "propertyData" : {
           "goDirectURL":"${SITE_NAME}/go/directly/",
+          "siteURL":"http://active-alliance.usatoday.com/",
+          "ampURL":"https://amp.desmoinesregister.com/amp/102045618", 
+          "ampAdURL":"https://amp.desmoinesregister.com/amp/339639001",
+          "varsityHsSportsURL":"https://preps.cincinnati.com/",
           "environment":"default"
         }
       },
@@ -126,7 +130,7 @@
     },
     "local-chrome" : {
       "desiredCapabilities": {
-        "name" : "Nightwatch - local-chrome",
+        "name" : "Nightwatch Skeleton - local-chrome",
         "browserName" : "chrome"
       },
       "globals" : {
@@ -141,7 +145,7 @@
     },
     "local-firefox" : {
       "desiredCapabilities": {
-        "name" : "Nightwatch - local-firefox",
+        "name" : "Nightwatch Skeleton - local-firefox",
         "browserName" : "firefox",
         "marionette" : true
       },
@@ -157,7 +161,7 @@
     },
     "local-safari" : {
       "desiredCapabilities": {
-        "name" : "Nightwatch - local-safari",
+        "name" : "Nightwatch Skeleton - local-safari",
         "browserName" : "safari"
       },
       "globals" : {

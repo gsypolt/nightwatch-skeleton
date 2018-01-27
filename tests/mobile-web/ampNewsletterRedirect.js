@@ -11,7 +11,7 @@ module.exports = {
     if (browser.globals.propertyData.environment.match(/(android|chrome)/i)) {
     browser
       // GIVEN the user goes directly to USA TODAY NETWORK amp article
-      .url(browser.globals.propertyData.ampDemoURL)
+      .url(browser.globals.propertyData.ampURL)
       .waitForElementVisible('.newsletter-button', WAIT_TIME)
       // WHEN user selects the NEWSLETTER CTA button
       .customScrollToClick('.newsletter-button')

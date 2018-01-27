@@ -5,7 +5,7 @@ module.exports = {
       var numberOfStories;
       browser
         //GIVEN the user goes directly to USA TODAY NETWORK amp article
-        .url(browser.globals.propertyData.ampAssetURL)
+        .url(browser.globals.propertyData.ampAdURL)
         //calculate how many paragraphs, ".story-container and divide by 4"
         .elements("css selector",".story-container", function(result) {
           numberOfStories=parseInt(result.value.length / 4);

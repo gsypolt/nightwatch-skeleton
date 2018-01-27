@@ -6,7 +6,6 @@ module.exports = {
       browser
         // GIVEN user navigates to site url
         .url(browser.globals.propertyData.siteURL)
-
         // WHEN user clicks on Facebook link
         .verify.visible('.qa-facebook')
         .perform(function(done) {
