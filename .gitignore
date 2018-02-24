@@ -18,5 +18,8 @@
 # Dependency directories
 node_modules
 
-#Run-time test reports
+# Run-time test reports
 reports
+
+# Selenium Local Logs
+selenium-debug.log

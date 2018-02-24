@@ -14,7 +14,7 @@ module.exports = {
   
     afterEach: function(browser, done) {
       browser
-        .customSauceEnd()
+        .sauceEnd()
         .end();
       done();
     }
