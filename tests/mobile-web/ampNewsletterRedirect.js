@@ -17,7 +17,7 @@ module.exports = {
       .customScrollToClick('.newsletter-button')
       // THEN the user will be redirected to a new tab where they can sign up for a weekly newsletter according to region
       .customChangeWindows(1)
-      .assert.urlContains('newsletters')
+      .assert.urlContains('newsletters');
     } else {
       console.log("This test isn't scheduled to execute in the selected environment.");
     }
@@ -26,7 +26,7 @@ module.exports = {
 
   afterEach: function(browser, done) {
     browser
-      .customSauceEnd()
+      .sauceEnd()
       .end();
     done();
   }

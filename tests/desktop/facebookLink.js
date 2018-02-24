@@ -14,7 +14,7 @@ module.exports = {
         })
 
         .perform(function(done){
-            browser.customChangeWindows(1);
+            browser.changeWindows(1);
             browser.assert.urlContains(browser.globals.propertyData.facebookURL);
             done();
             });
@@ -22,7 +22,7 @@ module.exports = {
   
     afterEach: function(browser, done) {
       browser
-        .customSauceEnd()
+        .sauceEnd()
         .end();
       done();
     }

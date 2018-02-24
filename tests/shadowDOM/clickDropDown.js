@@ -33,7 +33,9 @@ module.exports = {
     },
 
   afterEach: function(browser, done) {
-        browser.customSauceEnd();
-        done();
+    browser
+      .sauceEnd()
+      .end();
+    done();
   }
 };
