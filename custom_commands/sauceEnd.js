@@ -1,19 +1,44 @@
 exports.command = function(result) {
-    var SauceLabs = require("saucelabs");
+    
+    handle_error = function(error) {
+        // If STDERR is being caught elsewhere, at least acknowledge an error
+        console.log("An error was thrown in " + __filename);
+        console.log("This is non-fatal; execution will complete but Sauce Labs metadata may be unavailable for these tests.")
+        console.log("Error details were sent to stderr.");
+        console.error(err);
+    }
 
-    var saucelabs = new SauceLabs({
-        username: process.env.SAUCE_USERNAME,
-        password: process.env.SAUCE_ACCESS_KEY
-    });
+    try {
+        var SauceLabs = require("saucelabs");
 
-    var sessionid = this.capabilities['webdriver.remote.sessionid'];
-    var jobName = this.currentTest.name;
+        var saucelabs = new SauceLabs({
+            username: process.env.SAUCE_USERNAME,
+            password: process.env.SAUCE_ACCESS_KEY
+        });
 
-    saucelabs.updateJob(sessionid, {
-        passed: this.currentTest.results.failed === 0,
-        name: jobName
-    }, function() {});
+        var sessionid = this.capabilities['webdriver.remote.sessionid'];
+        var jobName = this.currentTest.name;
 
-    console.log("SauceOnDemandSessionID=" + sessionid + " job-name=" + jobName);
-    this.end();
+        // Update the console log first, so any errors with the REST API can be
+        // Corrected after the fact
+        console.log("SauceOnDemandSessionID=" + sessionid + " job-name=" + jobName);
+
+        var terminate = this.end;
+
+        saucelabs.updateJob(sessionid, {
+            passed: this.currentTest.results.failed === 0,
+            name: jobName,
+            proxy: "https://fakemistakeshake.com:4dede44"
+        }, function(err, res) {
+            if(err){
+                handle_error(err);
+            } else {
+                //no-op
+            }
+            terminate();
+        });
+    } catch (err) {
+        handle_error(err);
+        this.end();
+    }
 };
