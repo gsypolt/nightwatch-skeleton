@@ -1,4 +1,16 @@
 exports.command = function(result) {
+
+    var find_proxy = function(){
+        proxy = (
+            process.env.https_proxy
+            || process.env.HTTPS_PROXY
+            || process.env.http_proxy
+            || process.env.https_proxy
+        )
+
+        return proxy;
+    }
+
     var SauceLabs = require("saucelabs");
 
     var saucelabs = new SauceLabs({
@@ -11,7 +23,8 @@ exports.command = function(result) {
 
     saucelabs.updateJob(sessionid, {
         passed: this.currentTest.results.failed === 0,
-        name: jobName
+        name: jobName,
+        proxy: find_proxy()
     }, function() {});
 
     console.log("SauceOnDemandSessionID=" + sessionid + " job-name=" + jobName);
