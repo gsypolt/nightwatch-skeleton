@@ -28,7 +28,6 @@ exports.command = function(result) {
         saucelabs.updateJob(sessionid, {
             passed: this.currentTest.results.failed === 0,
             name: jobName,
-            proxy: "https://fakemistakeshake.com:4dede44"
         }, function(err, res) {
             if(err){
                 handle_error(err);
